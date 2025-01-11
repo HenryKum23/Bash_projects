@@ -1,21 +1,24 @@
 #!/bin/bash
 
-# Create necessary files
-touch b2.sh bashass.sh bash.sh black.mp3 bubu.avi dame.mov david.flac
-dev.log dino.log edochie.jpg efe.log games.avi hunger.mov
-mapple.jnp naija.jpg nana.mov peace.py pete.png pyython.pyy
-shata.flac sheriff.flac toyyin.pdf van.avi wale.mp3 wike.avi
-wiz.mp3 yul.jpg Yvonne.txt zanku.mp3 ghana.avi
+# Create necessary directories
+mkdir -p file images videos
 
-# create necessary directories
-mkdir -p music images videos
+# Move files to appropriate directories if they exist
+if ls *.txt 1> /dev/null 2>&1; then
+    mv *.txt file/
+fi
 
-# Move files to appropriate directories
-mv *.mp3 *.flac music/
-mv *.jpg *.png images/
-mv *.avi *.mov videos/
+if ls *.jpeg 1> /dev/null 2>&1; then
+    mv *.jpeg images/
+fi
 
-# Remove log files
-rm *.log
-echo "Directory has been organized."
+if ls *.mov 1> /dev/null 2>&1; then
+    mv *.mov videos/
+fi
 
+# Remove log files if they exist
+if ls *.log 1> /dev/null 2>&1; then
+    rm *.log
+fi
+
+echo "Directories have been organized."
